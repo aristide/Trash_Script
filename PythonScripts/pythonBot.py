@@ -1,3 +1,6 @@
+### translate a given text from one language to another 
+### using googletranslator
+
 import urllib
 import simplejson as json
 
@@ -8,7 +11,7 @@ class UNknownWxception(Exception):
     pass
     
 class AristideBot(object):
-
+	
     URI="http://ajax.googleapis.com/ajax/services/language/translate"
     default={'v':'1.0'}
     
@@ -34,8 +37,8 @@ class AristideBot(object):
         args=self.default.copy()
         return self.retrieveAnswer(json.load(urllib.FancyURLopener().open('%s?%s' % (self.URI,self.build_request(args)))))
 
-######## Usage 
+######## Usage: tranlate form french to english
 
 translator=AristideBot()
 text="bonjour Aristide"
-print translator.translate('fr','enbb',text)
+print translator.translate('fr','en',text)
